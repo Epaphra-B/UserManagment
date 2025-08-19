@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="card p-4">
-  <h3 class="fw-bold text-primary mb-3">User Management</h3>
+<div class="glass-card p-4">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-2">
+    <div>
+      <h3 class="fw-bold mb-0">User Management</h3>
+      <div class="text-secondary small">Manage roles, status, and access</div>
+    </div>
+    <div class="input-group" style="max-width: 320px;">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input id="userFilter" class="form-control" placeholder="Search users...">
+    </div>
+  </div>
   <div class="table-responsive">
-    <table class="table table-hover align-middle">
+    <table id="usersTable" class="table align-middle">
       <thead class="table-light">
         <tr>
-          <th>ID</th><th>Username</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th>
+          <th class="text-nowrap">ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th class="text-end">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -14,11 +28,9 @@
         <tr>
           <td>{{ u.id }}</td>
           <td class="fw-semibold">{{ u.username }}</td>
-          <td>{{ u.email }}</td>
+          <td class="text-secondary">{{ u.email }}</td>
           <td>
-            <span class="badge {% if u.role == 'admin' %}bg-danger{% else %}bg-secondary{% endif %}">
-              {{ u.role|capitalize }}
-            </span>
+            <span class="badge {% if u.role == 'admin' %}bg-danger{% else %}bg-secondary{% endif %}">{{ u.role|capitalize }}</span>
           </td>
           <td>
             {% if u.is_active %}
@@ -27,18 +39,20 @@
               <span class="badge bg-warning text-dark">Inactive</span>
             {% endif %}
           </td>
-          <td class="d-flex gap-2">
-            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('admin.toggle_active', user_id=u.id) }}">
-              Toggle
-            </a>
-            {% if u.role != 'admin' %}
-              <a class="btn btn-sm btn-outline-primary" href="{{ url_for('admin.make_admin', user_id=u.id) }}">
-                Make Admin
+          <td class="text-end">
+            <div class="btn-group" role="group">
+              <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('admin.toggle_active', user_id=u.id) }}" title="Toggle active">
+                <i class="bi bi-toggle-on"></i>
               </a>
-              <a class="btn btn-sm btn-outline-danger" href="{{ url_for('admin.delete_user', user_id=u.id) }}">
-                Delete
+              {% if u.role != 'admin' %}
+              <a class="btn btn-sm btn-outline-primary" href="{{ url_for('admin.make_admin', user_id=u.id) }}" title="Make admin">
+                <i class="bi bi-person-gear"></i>
               </a>
-            {% endif %}
+              <a class="btn btn-sm btn-outline-danger" href="{{ url_for('admin.delete_user', user_id=u.id) }}" title="Delete">
+                <i class="bi bi-trash"></i>
+              </a>
+              {% endif %}
+            </div>
           </td>
         </tr>
       {% endfor %}
@@ -46,4 +60,18 @@
     </table>
   </div>
 </div>
+<script>
+  (function(){
+    const input = document.getElementById('userFilter');
+    const table = document.getElementById('usersTable');
+    if (!input || !table) return;
+    input.addEventListener('input', function(){
+      const q = input.value.toLowerCase();
+      table.querySelectorAll('tbody tr').forEach(function(row){
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  })();
+</script>
 {% endblock %}

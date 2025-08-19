@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from .extensions import db, login_manager, migrate, csrf
 from .models import User
 
@@ -28,6 +28,6 @@ def create_app():
     # Simple index
     @app.get("/")
     def index():
-        return "<p>User Management Home</p>"
+        return render_template("index.html", title="Home")
 
     return app

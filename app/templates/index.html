@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5 py-lg-6">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold mb-3" style="line-height:1.1">
+        Manage users with elegance and speed
+      </h1>
+      <p class="lead text-secondary mb-4">
+        A refined user management starter for Flask with authentication, roles, and a premium UI. Built for clarity, performance, and delightful UX.
+      </p>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="{{ url_for('auth.register') }}" class="btn btn-premium btn-lg">
+          <i class="bi bi-rocket-takeoff me-2"></i>Get started
+        </a>
+        <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary btn-lg">
+          <i class="bi bi-box-arrow-in-right me-2"></i>Sign in
+        </a>
+      </div>
+              <div class="d-flex flex-wrap align-items-center gap-3 mt-4 text-secondary small">
+          <div class="d-flex align-items-center"><i class="bi bi-check-circle text-success me-2"></i>Role-based access</div>
+          <div class="d-flex align-items-center"><i class="bi bi-check-circle text-success me-2"></i>Modern Bootstrap 5.3</div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="glass-card p-4 p-md-5">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="border-color: var(--glass-border) !important;">
+              <div class="display-6 mb-2"><i class="bi bi-people"></i></div>
+              <div class="fw-semibold">User Directory</div>
+              <div class="text-secondary small">Search, filter, and manage users efficiently.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="border-color: var(--glass-border) !important;">
+              <div class="display-6 mb-2"><i class="bi bi-shield-lock"></i></div>
+              <div class="fw-semibold">Secure Auth</div>
+              <div class="text-secondary small">Login, register, and CSRF protection out of the box.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="border-color: var(--glass-border) !important;">
+              <div class="display-6 mb-2"><i class="bi bi-person-gear"></i></div>
+              <div class="fw-semibold">Admin Tools</div>
+              <div class="text-secondary small">Promote, deactivate, and remove users with ease.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="border-color: var(--glass-border) !important;">
+              <div class="display-6 mb-2"><i class="bi bi-brush"></i></div>
+              <div class="fw-semibold">Polished UI</div>
+              <div class="text-secondary small">Elegant components with premium feel and clarity.</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center gap-3">
+            <div class="rounded-circle" style="width:44px;height:44px;background:linear-gradient(135deg,var(--brand),var(--brand-2));"></div>
+            <div class="small">
+              <div class="fw-semibold">Ready in minutes</div>
+              <div class="text-secondary">Start building your app today</div>
+            </div>
+          </div>
+          <a href="{{ url_for('admin.users') }}" class="btn btn-outline-primary">
+            <i class="bi bi-speedometer2 me-1"></i>View admin
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 
