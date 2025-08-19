@@ -60,6 +60,7 @@ db.sqlite3
 *.db
 *.sqlite
 migrations/versions/*.pyc
+migrations/
 
 # VS Code / IDE configs
 .vscode/
