@@ -51,63 +51,81 @@ Flask Project Setup Guide
 First, create and activate a virtual environment for your project.
 ```
 
-# Create the virtual environment
+### Create the virtual environment
 
+```bash
 python -m venv .venv
+```
 
-# Activate the environment
+### Activate the environment
 
-# On macOS/Linux
+#### On macOS/Linux
 
+```bash
 source .venv/bin/activate
+```
 
-# On Windows
+#### On Windows
 
+```bash
 .venv\Scripts\activate
+```
 
-3. Install Dependencies
+### 3. Install Dependencies
+
 Install all the required Python packages using the requirements.txt file.
 
+```bash
 pip install -r requirements.txt
+```
 
-4. Configure Environment
+### 4. Configure Environment
+
 Create a .env file in the root of your project to store environment variables.
 
 .env file:
 
+```bash
 FLASK_ENV=development
 SECRET_KEY=change-this-32char-secret
 DATABASE_URL=sqlite:///instance.db
+```
 
-🗄️ Database Setup
+### 🗄️ Database Setup
 Initialize the database, create the initial migration, and apply it.
 
+```bash
 flask db init
 flask db migrate -m "init users"
 flask db upgrade
+```
 
-Create Admin User
+### Create Admin User
 Run the following Python code to create a default administrator.
 
+```bash
 from app import create_app
 from app.extensions import db
 from app.models import User
-
 app = create_app()
 with app.app_context():
     u = User(username="admin", email="<admin@example.com>", role="admin")
     u.set_password("ChangeMeNow123!")
     db.session.add(u)
     db.session.commit()
+```
 
-▶️ Run the Application
+### ▶️ Run the Application
 Start the Flask development server.
 
+```bash
 flask run
+```
 
 Once running, you can access the application by navigating to <http://127.0.0.1:5000/> in your web browser.
 
-🔑 Default Admin Credentials
+### 🔑 Default Admin Credentials
+
 Username: admin
 
 Password: ChangeMeNow123!
