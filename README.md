@@ -20,24 +20,25 @@ Features include authentication, profile management, and admin dashboard for use
 
 ## 📂 Project Structure
 
-user_mgmt/
-├── app.py # Entry point
-├── config.py # Configuration
-├── requirements.txt # Dependencies
-├── .env # Environment variables (ignored by git)
-├── migrations/ # Database migrations
-└── app/
-├── init.py
-├── extensions.py
-├── models.py
-├── forms.py
-├── utils.py
-├── auth/ # Authentication routes
-├── user/ # User profile routes
-├── admin/ # Admin dashboard
-└── templates/ # Jinja2 templates
+```text
 
----
+user_mgmt/
+├── app.py                # Entry point
+├── config.py             # Configuration
+├── requirements.txt      # Dependencies
+├── .env                  # Environment variables (ignored by git)
+├── migrations/           # Database migrations
+└── app/
+    ├── __init__.py
+    ├── extensions.py
+    ├── models.py
+    ├── forms.py
+    ├── utils.py
+    ├── auth/             # Authentication routes
+    ├── user/             # User profile routes
+    ├── admin/            # Admin dashboard
+    └── templates/        # Jinja2 templates
+```
 
 ## ⚙️ Installation
 
