@@ -49,15 +49,20 @@ cd flask-user-management
 Flask Project Setup Guide
 2. Create Virtual Environment
 First, create and activate a virtual environment for your project.
+```
 
 # Create the virtual environment
+
 python -m venv .venv
 
 # Activate the environment
-# On macOS/Linux:
+
+# On macOS/Linux
+
 source .venv/bin/activate
 
-# On Windows:
+# On Windows
+
 .venv\Scripts\activate
 
 3. Install Dependencies
@@ -90,7 +95,7 @@ from app.models import User
 
 app = create_app()
 with app.app_context():
-    u = User(username="admin", email="admin@example.com", role="admin")
+    u = User(username="admin", email="<admin@example.com>", role="admin")
     u.set_password("ChangeMeNow123!")
     db.session.add(u)
     db.session.commit()
@@ -100,7 +105,7 @@ Start the Flask development server.
 
 flask run
 
-Once running, you can access the application by navigating to http://127.0.0.1:5000/ in your web browser.
+Once running, you can access the application by navigating to <http://127.0.0.1:5000/> in your web browser.
 
 🔑 Default Admin Credentials
 Username: admin
