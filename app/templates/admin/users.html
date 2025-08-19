@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Users</h3>
+<table class="table table-striped align-middle">
+  <thead><tr>
+    <th>ID</th><th>Username</th><th>Email</th><th>Role</th><th>Active</th><th>Actions</th>
+  </tr></thead>
+  <tbody>
+  {% for u in rows %}
+    <tr>
+      <td>{{ u.id }}</td>
+      <td>{{ u.username }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.role }}</td>
+      <td>{{ 'Yes' if u.is_active else 'No' }}</td>
+      <td class="d-flex gap-2">
+        <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('admin.toggle_active', user_id=u.id) }}">Toggle Active</a>
+        {% if u.role != 'admin' %}
+          <a class="btn btn-sm btn-outline-primary" href="{{ url_for('admin.make_admin', user_id=u.id) }}">Make Admin</a>
+          <a class="btn btn-sm btn-outline-danger" href="{{ url_for('admin.delete_user', user_id=u.id) }}">Delete</a>
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
