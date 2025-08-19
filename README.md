@@ -30,9 +30,9 @@ It allows administrators to **add, view, edit, and delete users**, with secure p
 ## Installation & Setup
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Epaphra-B/UserManagment.git
-   cd UserManagment
+```bash
+git clone https://github.com/Epaphra-B/UserManagment.git
+cd UserManagment
 ```
 
 2. **Create and activate a virtual environment**
@@ -71,7 +71,7 @@ http://127.0.0.1:5000/
 
 ---
 
-###Database Schema
+## Database Schema
 
 The application defines a single User model:
 
@@ -88,7 +88,7 @@ password	String(200)	Required (hashed via Argon2)
 
 ---
 
-###Project Structure
+## Project Structure
 
 ```text
 UserManagment/
@@ -106,7 +106,7 @@ UserManagment/
 
 ---
 
-###Security Notes
+## Security Notes
 
 Passwords are hashed using Argon2 for strong protection.
 
