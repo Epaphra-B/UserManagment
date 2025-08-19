@@ -130,6 +130,6 @@ Once running, you can access the application by navigating to <http://127.0.0.1:
 
 ### 🔑 Default Admin Credentials
 
-Username: admin
+- Username: admin
 
-Password: ChangeMeNow123!
+- Password: ChangeMeNow123!
