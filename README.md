@@ -93,6 +93,7 @@ DATABASE_URL=sqlite:///instance.db
 ```
 
 ### 🗄️ Database Setup
+
 Initialize the database, create the initial migration, and apply it.
 
 ```bash
@@ -102,6 +103,7 @@ flask db upgrade
 ```
 
 ### Create Admin User
+
 Run the following Python code to create a default administrator.
 
 ```bash
@@ -117,6 +119,7 @@ with app.app_context():
 ```
 
 ### ▶️ Run the Application
+
 Start the Flask development server.
 
 ```bash
