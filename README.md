@@ -75,14 +75,14 @@ http://127.0.0.1:5000/
 
 The application defines a single User model:
 
-**Field	Type	Constraints***
+**Field	Type	Constraints**
 
 ```text
 id	Integer	Primary key
-firstname	String(100)	Required
-lastname	String(100)	Required
-email	String(150)	Required, Unique
-password	String(200)	Required (hashed via Argon2)
+firstname 	String(100)	Required
+lastname	  String(100)	Required
+email	     String(150)	Required, Unique
+password	  String(200)	Required (hashed via Argon2)
 ```
 
 
